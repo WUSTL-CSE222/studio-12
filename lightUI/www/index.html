@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <meta name="format-detection" content="telephone=no">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+      <link rel="stylesheet" type="text/css" href="css/index.css">
+      <title>Wi-Fi Light</title>
+
+      <!-- Load Material Design Light Style/Resources: https://getmdl.io/ -->
+      <link rel="stylesheet" href="./resources/mdl/material.min.css">
+      <script src="./resources/mdl/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+      <!-- Load the Particle JavaScript -->
+      <script src="./resources/particle/particle.min.js"></script>
+</head>
+
+<body>
+  <!-- Based on Simple Header with fixed tabs example: https://getmdl.io/components/index.html#layout-section/layout -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+                mdl-layout--fixed-tabs">
+
+      <!-- Page Header / Title -->
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Wi-Fi Light!</span>
+        </div>
+
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#basic-tab" class="mdl-layout__tab is-active">Basic</a>
+        </div>
+      </header>
+
+      <!--  ************************** Basic Tab ************************** -->
+      <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="basic-tab">
+          <div class="page-content">
+            <!-- Tab for Basic Controls: Uses Grid
+                  12 columns on desktop
+                  8 columns on tablets
+                  4 columns on phones -->
+                  <!-- MDL Spinner Component -->
+
+            <div id="loading" class="mdl-grid">
+              <div id="p2" class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">Loading</div>
+              <div id="p2" class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+            </div>
+
+            <div id="allControls" class="mdl-grid">
+                <div class="mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--3-col-phone">Power</div>
+                <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone">
+                  <label id="onOffSwitchLabel" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="onOffSwitch">
+                    <input id="onOffSwitch" type="checkbox" class="mdl-switch__input" >
+                    <span class="mdl-switch__label"></span>
+                  </label>
+                  </div>
+
+
+                <div class="mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--3-col-phone">Current Color</div>
+                <div id="currentColor" class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone" style="background:blue;"></div>
+
+                <div class="mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--3-col-phone">Target Color</div>
+                <div id="targetColor" class="mdl-cell mdl-cell--3-col mdl-cell--2-col-tablet mdl-cell--1-col-phone" style="background:red;"></div>
+
+
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--1-col-phone">Red</div>
+                <div class="mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--2-col-phone">
+                  <p style="width:100%">
+                    <input id="redSlider" class="mdl-slider mdl-js-slider" type="range"  min="0" max="100" value="25" tabindex="0" style="background:red;">
+                  </p>
+                </div>
+                <div id="redLabel" class="mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone">100</div>
+
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--1-col-phone">Green</div>
+                <div class="mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--2-col-phone">
+                  <p style="width:100%">
+                    <input id="greenSlider" class="mdl-slider mdl-js-slider" type="range"  min="0" max="100" value="25" tabindex="0" style="background:green;">
+                  </p>
+                </div>
+                <div id="greenLabel" class="mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone">100</div>
+
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet mdl-cell--1-col-phone">Blue</div>
+                <div class="mdl-cell mdl-cell--9-col mdl-cell--6-col-tablet mdl-cell--2-col-phone">
+                  <p style="width:100%">
+                    <input id="blueSlider" class="mdl-slider mdl-js-slider" type="range"  min="0" max="100" value="25" tabindex="0" style="background:blue;">
+                  </p>
+                </div>
+                <div id="blueLabel" class="mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone">100</div>
+
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                  <button id="setColorButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:100%;">
+                    Set Color
+                  </button>
+                </div>
+              </div>
+          </div>
+        </section>
+  </div>
+
+<!-- Load Cordova Support -->
+<script type="text/javascript" src="cordova.js"></script>
+<!-- Load the light object and UI support-->
+<script src="./js/mainLightUI.js"></script>
+<script src="./js/light.js"></script>
+</body>
+</html>
